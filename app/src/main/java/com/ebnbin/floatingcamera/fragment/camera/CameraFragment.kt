@@ -15,14 +15,11 @@ import com.ebnbin.floatingcamera.fragment.permission.PermissionFragment
 import com.ebnbin.floatingcamera.service.CameraService
 import com.ebnbin.floatingcamera.util.LocalBroadcastHelper
 import com.ebnbin.floatingcamera.util.PreferenceHelper
-import com.ebnbin.floatingcamera.util.extension.dpInt
 import com.ebnbin.floatingcamera.util.extension.get
 import com.ebnbin.floatingcamera.util.extension.put
 import com.ebnbin.floatingcamera.util.getColorAttr
 import com.ebnbin.floatingcamera.util.sp
-import kotlinx.android.synthetic.main.camera_fragment.cameraFab
-import kotlinx.android.synthetic.main.camera_fragment.tabLayout
-import kotlinx.android.synthetic.main.camera_fragment.viewPager
+import kotlinx.android.synthetic.main.camera_fragment.*
 
 /**
  * 首页.
@@ -59,7 +56,7 @@ class CameraFragment :
         viewPager.adapter = adapter
         viewPager.addOnPageChangeListener(this)
         viewPager.offscreenPageLimit = adapter.count
-        viewPager.pageMargin = 16.dpInt
+//        viewPager.pageMargin = 16.dpInt
         viewPager.setPageMarginDrawable(ColorDrawable(getColorAttr(context, R.attr.colorPlaceholder)))
 
         cameraFab.setOnClickListener {
