@@ -3,7 +3,7 @@ package com.ebnbin.floatingcamera.fragment.preference
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v14.preference.SwitchPreference
+import androidx.preference.SwitchPreference
 import com.ebnbin.floatingcamera.R
 import com.ebnbin.floatingcamera.preference.ListPreference
 import com.ebnbin.floatingcamera.preference.PreferenceFragment

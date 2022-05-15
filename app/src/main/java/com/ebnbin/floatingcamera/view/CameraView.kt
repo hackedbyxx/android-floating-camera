@@ -9,11 +9,7 @@ import android.graphics.ImageFormat
 import android.graphics.Matrix
 import android.graphics.RectF
 import android.graphics.SurfaceTexture
-import android.hardware.camera2.CameraAccessException
-import android.hardware.camera2.CameraCaptureSession
-import android.hardware.camera2.CameraDevice
-import android.hardware.camera2.CaptureRequest
-import android.hardware.camera2.TotalCaptureResult
+import android.hardware.camera2.*
 import android.media.ImageReader
 import android.media.MediaRecorder
 import android.os.Build
@@ -24,22 +20,12 @@ import android.util.Log
 import android.view.Surface
 import android.view.TextureView
 import android.widget.Toast
-import com.crashlytics.android.Crashlytics
 import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.dev.DevHelper
 import com.ebnbin.floatingcamera.fragment.preference.CameraPreferenceFragment
 import com.ebnbin.floatingcamera.fragment.preference.WindowPreferenceFragment
 import com.ebnbin.floatingcamera.service.CameraService
-import com.ebnbin.floatingcamera.util.BaseRuntimeException
-import com.ebnbin.floatingcamera.util.CameraHelper
-import com.ebnbin.floatingcamera.util.FileUtil
-import com.ebnbin.floatingcamera.util.LocalBroadcastHelper
-import com.ebnbin.floatingcamera.util.PermissionHelper
-import com.ebnbin.floatingcamera.util.PreferenceHelper
-import com.ebnbin.floatingcamera.util.RotationHelper
-import com.ebnbin.floatingcamera.util.cameraManager
+import com.ebnbin.floatingcamera.util.*
 import com.ebnbin.floatingcamera.util.extension.fileFormatExtension
-import com.ebnbin.floatingcamera.util.sp
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -54,20 +40,20 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
         TextureView.SurfaceTextureListener,
         SharedPreferences.OnSharedPreferenceChangeListener,
         RotationHelper.Listener {
-    override fun onSurfaceTextureAvailable(surface: SurfaceTexture?, width: Int, height: Int) {
+    override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
         openCamera()
     }
 
-    override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture?, width: Int, height: Int) {
+    override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture, width: Int, height: Int) {
         invalidateTransform()
     }
 
-    override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?): Boolean {
+    override fun onSurfaceTextureDestroyed(surface: SurfaceTexture): Boolean {
         closeCamera()
         return true
     }
 
-    override fun onSurfaceTextureUpdated(surface: SurfaceTexture?) = Unit
+    override fun onSurfaceTextureUpdated(surface: SurfaceTexture) = Unit
 
     //*****************************************************************************************************************
 
@@ -134,7 +120,7 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
 
     private fun error(message: String) {
         CameraService.stop()
-        Crashlytics.logException(BaseRuntimeException("CameraView finish $message"))
+//        Crashlytics.logException(BaseRuntimeException("CameraView finish $message"))
     }
 
     //*****************************************************************************************************************
@@ -282,7 +268,7 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
             // Attempt to open the camera. StateCallback will be called on the background handler's
             // thread when this succeeds or fails.
             cameraManager.openCamera(device.id, object : CameraDevice.StateCallback() {
-                override fun onOpened(camera: CameraDevice?) {
+                override fun onOpened(camera: CameraDevice) {
                     // This method is called when the camera is opened.  We start camera preview here if
                     // the TextureView displaying this has been set up.
                     cameraOpenCloseLock.release()
@@ -295,14 +281,14 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
                     }
                 }
 
-                override fun onDisconnected(camera: CameraDevice?) {
+                override fun onDisconnected(camera: CameraDevice) {
                     cameraOpenCloseLock.release()
-                    camera?.close()
+                    camera.close()
                     cameraDevice = null
                     error("open camera on disconnected")
                 }
 
-                override fun onError(camera: CameraDevice?, error: Int) {
+                override fun onError(camera: CameraDevice, error: Int) {
                     Log.e("ebnbin", "Received camera device error: $error")
 
                     onDisconnected(camera)
@@ -322,7 +308,7 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
         device = PreferenceHelper.device()
         resolution = PreferenceHelper.resolution()
         isPhoto = PreferenceHelper.isPhoto()
-        surfaceTexture.setDefaultBufferSize(device.previewResolution.width, device.previewResolution.height)
+        surfaceTexture?.setDefaultBufferSize(device.previewResolution.width, device.previewResolution.height)
         sendInvalidateBroadcast()
         invalidateTransform()
     }
@@ -367,7 +353,7 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
     }
 
     protected fun toastFile() {
-        DevHelper.event("file", mapOf("file" to file))
+//        DevHelper.event("file", mapOf("file" to file))
 
         if (!isAttachedToWindow) return
 
@@ -405,7 +391,7 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
 
         val outputs = listOf(Surface(surfaceTexture))
         cameraDevice!!.createCaptureSession(outputs, object : CameraCaptureSession.StateCallback() {
-            override fun onConfigured(session: CameraCaptureSession?) {
+            override fun onConfigured(session: CameraCaptureSession) {
                 if (cameraDevice == null || !isAvailable || session == null) return
 
                 val request = buildVideoPreviewCaptureRequest(cameraDevice!!)
@@ -414,7 +400,7 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
                 videoPreviewCameraCaptureSession = session
             }
 
-            override fun onConfigureFailed(session: CameraCaptureSession?) {
+            override fun onConfigureFailed(session: CameraCaptureSession) {
             }
         }, backgroundHandler)
     }
@@ -464,7 +450,7 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
         try {
             setUpMediaRecorder(mediaRecorder!!)
         } catch (e: Exception) {
-            Crashlytics.logException(e)
+//            Crashlytics.logException(e)
             Toast.makeText(context, R.string.camera_exception, Toast.LENGTH_SHORT).show()
             error("setUpMediaRecorder")
             return
@@ -472,14 +458,14 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
 
         val outputs = listOf(Surface(surfaceTexture), mediaRecorder!!.surface)
         cameraDevice!!.createCaptureSession(outputs, object : CameraCaptureSession.StateCallback() {
-            override fun onConfigured(session: CameraCaptureSession?) {
+            override fun onConfigured(session: CameraCaptureSession) {
                 if (cameraDevice == null || !isAvailable || session == null || mediaRecorder == null) return
 
                 try {
                     val request = buildVideoRecordCaptureRequest(cameraDevice!!, mediaRecorder!!)
                     session.setRepeatingRequest(request, null, backgroundHandler)
                 } catch (e: CameraAccessException) {
-                    Crashlytics.logException(e)
+//                    Crashlytics.logException(e)
                     Toast.makeText(context, R.string.camera_exception, Toast.LENGTH_SHORT).show()
                     error("start record set repeating request")
                     return
@@ -494,7 +480,7 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
                 videoRecordCameraCaptureSession = session
             }
 
-            override fun onConfigureFailed(session: CameraCaptureSession?) {
+            override fun onConfigureFailed(session: CameraCaptureSession) {
             }
         }, backgroundHandler)
     }
@@ -509,12 +495,12 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
         try {
             mediaRecorder?.stop()
         } catch (e: Exception) {
-            Crashlytics.logException(e)
+//            Crashlytics.logException(e)
         }
         try {
             mediaRecorder?.reset()
         } catch (e: Exception) {
-            Crashlytics.logException(e)
+//            Crashlytics.logException(e)
         }
 
         toastFile()
@@ -601,7 +587,7 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
 
         val outputs = listOf(Surface(surfaceTexture), imageReader!!.surface)
         cameraDevice!!.createCaptureSession(outputs, object : CameraCaptureSession.StateCallback() {
-            override fun onConfigured(session: CameraCaptureSession?) {
+            override fun onConfigured(session: CameraCaptureSession) {
                 if (cameraDevice == null || session == null) return
 
                 val request = buildPhotoPreviewCaptureRequest(cameraDevice!!)
@@ -610,7 +596,7 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
                 photoPreviewCameraCaptureSession = session
             }
 
-            override fun onConfigureFailed(session: CameraCaptureSession?) {
+            override fun onConfigureFailed(session: CameraCaptureSession) {
             }
         }, backgroundHandler)
     }
@@ -630,15 +616,22 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
 //        photoPreviewCameraCaptureSession!!.abortCaptures()
         val request = buildPhotoCaptureCaptureRequest(cameraDevice!!, imageReader!!)
         photoPreviewCameraCaptureSession!!.capture(request, object : CameraCaptureSession.CaptureCallback() {
-            override fun onCaptureStarted(session: CameraCaptureSession?, request: CaptureRequest?, timestamp: Long,
-                    frameNumber: Long) {
+            override fun onCaptureStarted(
+                session: CameraCaptureSession,
+                request: CaptureRequest,
+                timestamp: Long,
+                frameNumber: Long
+            ) {
                 super.onCaptureStarted(session, request, timestamp, frameNumber)
 
                 setUpFile(".jpg")
             }
 
-            override fun onCaptureCompleted(session: CameraCaptureSession?, request: CaptureRequest?,
-                    result: TotalCaptureResult?) {
+            override fun onCaptureCompleted(
+                session: CameraCaptureSession,
+                request: CaptureRequest,
+                result: TotalCaptureResult
+            ) {
                 super.onCaptureCompleted(session, request, result)
 
                 if (photoPreviewCameraCaptureSession == null || cameraDevice == null) return

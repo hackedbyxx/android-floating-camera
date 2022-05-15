@@ -7,21 +7,13 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.Build
-import android.support.v4.app.NotificationCompat
 import android.view.Gravity
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
 import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.dev.DevHelper
 import com.ebnbin.floatingcamera.receiver.StopCameraServiceBroadcastReceiver
-import com.ebnbin.floatingcamera.util.LocalBroadcastHelper
-import com.ebnbin.floatingcamera.util.PermissionHelper
-import com.ebnbin.floatingcamera.util.PreferenceHelper
-import com.ebnbin.floatingcamera.util.RotationHelper
-import com.ebnbin.floatingcamera.util.app
-import com.ebnbin.floatingcamera.util.notificationManager
-import com.ebnbin.floatingcamera.util.res
-import com.ebnbin.floatingcamera.util.windowManager
+import com.ebnbin.floatingcamera.util.*
 import com.ebnbin.floatingcamera.view.CameraLayout
 import com.ebnbin.floatingcamera.widget.CameraAppWidgetProvider
 
@@ -87,7 +79,7 @@ class CameraService : Service(), LocalBroadcastHelper.Receiver {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         val fromWidget = intent?.getStringExtra(CameraAppWidgetProvider.KEY_FROM)?.equals("widget") == true
-        DevHelper.event("on start command", mapOf("from widget" to fromWidget))
+//        DevHelper.event("on start command", mapOf("from widget" to fromWidget))
         return super.onStartCommand(intent, flags, startId)
     }
 

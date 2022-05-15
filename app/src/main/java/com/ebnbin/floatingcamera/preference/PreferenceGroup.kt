@@ -1,13 +1,12 @@
 package com.ebnbin.floatingcamera.preference
 
 import android.content.Context
+import android.os.Build
 import android.os.Parcel
 import android.os.Parcelable
-import android.support.v7.preference.Preference
-import android.support.v7.preference.PreferenceCategory
-import android.support.v7.preference.PreferenceManager
-import com.ebnbin.floatingcamera.util.extension.readBoolean
-import com.ebnbin.floatingcamera.util.extension.writeBoolean
+import androidx.annotation.RequiresApi
+import androidx.preference.Preference
+import androidx.preference.PreferenceManager
 
 /**
  * [android.support.v7.preference.PreferenceGroup].
@@ -16,7 +15,7 @@ import com.ebnbin.floatingcamera.util.extension.writeBoolean
  *
  * [PreferenceCategory] 作为普通 [Preference] 使用, 不用于添加子 [Preference].
  */
-open class PreferenceGroup(context: Context) : android.support.v7.preference.PreferenceGroup(context, null) {
+open class PreferenceGroup(context: Context) : androidx.preference.PreferenceGroup(context, null) {
     init {
         isVisible = false
     }
@@ -126,6 +125,7 @@ open class PreferenceGroup(context: Context) : android.support.v7.preference.Pre
     private class SavedState : BaseSavedState {
         val isGroupVisible: Boolean
 
+        @RequiresApi(Build.VERSION_CODES.Q)
         constructor(source: Parcel?) : super(source) {
             isGroupVisible = source?.readBoolean() ?: DEF_IS_GROUP_VISIBLE
         }
@@ -133,6 +133,7 @@ open class PreferenceGroup(context: Context) : android.support.v7.preference.Pre
             this.isGroupVisible = isGroupVisible
         }
 
+        @RequiresApi(Build.VERSION_CODES.Q)
         override fun writeToParcel(parcel: Parcel, flags: Int) {
             super.writeToParcel(parcel, flags)
 
@@ -140,6 +141,7 @@ open class PreferenceGroup(context: Context) : android.support.v7.preference.Pre
         }
 
         companion object CREATOR : Parcelable.Creator<SavedState> {
+            @RequiresApi(Build.VERSION_CODES.Q)
             override fun createFromParcel(parcel: Parcel) = SavedState(parcel)
 
             override fun newArray(size: Int) = arrayOfNulls<SavedState>(size)

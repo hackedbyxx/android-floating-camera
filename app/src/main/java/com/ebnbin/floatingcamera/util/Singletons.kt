@@ -5,9 +5,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Resources
 import android.hardware.camera2.CameraManager
-import android.support.v7.preference.PreferenceManager
 import android.view.Display
 import android.view.WindowManager
+import androidx.preference.PreferenceManager
 import com.crashlytics.android.answers.Answers
 import com.ebnbin.floatingcamera.AppApplication
 

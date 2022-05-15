@@ -3,10 +3,10 @@ package com.ebnbin.floatingcamera.fragment.preference
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v14.preference.SwitchPreference
-import android.support.v7.preference.Preference
-import android.support.v7.preference.PreferenceCategory
-import android.support.v7.preference.SeekBarPreference
+import androidx.preference.Preference
+import androidx.preference.PreferenceCategory
+import androidx.preference.SeekBarPreference
+import androidx.preference.SwitchPreference
 import com.ebnbin.floatingcamera.R
 import com.ebnbin.floatingcamera.preference.PreferenceFragment
 import com.ebnbin.floatingcamera.preference.PreferenceGroup
@@ -187,7 +187,6 @@ class WindowPreferenceFragment : PreferenceFragment<WindowPreferenceFragment.Win
                 setSummary(R.string.gesture_long_press_summary)
             }
         }
-
         override fun onCreatePreferences(savedInstanceState: Bundle?) = arrayOf(
                 displayPreferenceCategory,
                 windowSizePreference,

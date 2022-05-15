@@ -2,8 +2,8 @@ package com.ebnbin.floatingcamera.util
 
 import android.content.ComponentCallbacks
 import android.content.Context
-import android.support.v4.util.ArrayMap
 import android.view.OrientationEventListener
+import androidx.collection.ArrayMap
 import com.ebnbin.floatingcamera.util.extension.get
 import com.ebnbin.floatingcamera.util.extension.put
 

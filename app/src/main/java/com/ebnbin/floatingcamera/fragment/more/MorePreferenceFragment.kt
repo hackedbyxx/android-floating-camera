@@ -2,8 +2,8 @@ package com.ebnbin.floatingcamera.fragment.more
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v14.preference.SwitchPreference
-import android.support.v7.preference.Preference
+import androidx.preference.Preference
+import androidx.preference.SwitchPreference
 import com.ebnbin.floatingcamera.BuildConfig
 import com.ebnbin.floatingcamera.R
 import com.ebnbin.floatingcamera.fragment.feedback.FeedbackDialogFragment

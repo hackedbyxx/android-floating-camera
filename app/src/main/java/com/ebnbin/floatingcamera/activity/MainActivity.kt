@@ -7,20 +7,13 @@ import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.dev.DevHelper
 import com.ebnbin.floatingcamera.fragment.main.MainFragment
 import com.ebnbin.floatingcamera.fragment.more.MorePreferenceFragment
-import com.ebnbin.floatingcamera.util.CameraException
-import com.ebnbin.floatingcamera.util.CameraHelper
-import com.ebnbin.floatingcamera.util.PreferenceHelper
-import com.ebnbin.floatingcamera.util.RotationHelper
-import com.ebnbin.floatingcamera.util.app
+import com.ebnbin.floatingcamera.util.*
 import com.ebnbin.floatingcamera.util.extension.dpInt
-import com.ebnbin.floatingcamera.util.res
-import com.ebnbin.floatingcamera.util.sp
 
 class MainActivity :
         AppCompatActivity(),
@@ -30,7 +23,7 @@ class MainActivity :
 
         super.onCreate(savedInstanceState)
 
-        DevHelper.event("main activity on create")
+//        DevHelper.event("main activity on create")
 
         setTaskDescription(taskDescription)
 

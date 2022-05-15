@@ -2,7 +2,7 @@ package com.ebnbin.floatingcamera.preference
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceFragmentCompat
 import com.ebnbin.floatingcamera.R
 
 /**

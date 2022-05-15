@@ -34,7 +34,7 @@
         <item name="colorPrimaryDark">@color/light_color_primary_dark</item>
         <item name="colorAccent">@color/light_color_accent</item>
         <item name="android:navigationBarColor">?attr/colorPrimaryDark</item>
-        <item name="preferenceTheme">@style/PreferenceTheme</item>
+        <!--<item name="preferenceTheme">@style/PreferenceTheme</item>-->
         <item name="colorIcon">@color/light_icon</item>
         <item name="colorCard">@color/cardview_light_background</item>
         <item name="colorPlaceholder">@color/light_placeholder</item>
@@ -57,7 +57,7 @@
         <item name="colorPrimaryDark">@color/dark_color_primary_dark</item>
         <item name="colorAccent">@color/dark_color_accent</item>
         <item name="android:navigationBarColor">?attr/colorPrimaryDark</item>
-        <item name="preferenceTheme">@style/PreferenceTheme</item>
+        <!--<item name="preferenceTheme">@style/PreferenceTheme</item>-->
         <item name="colorIcon">@color/dark_icon</item>
         <item name="colorCard">@color/cardview_dark_background</item>
         <item name="colorPlaceholder">@color/dark_placeholder</item>
@@ -66,11 +66,11 @@
     <!-- ********************************************************************************************************** -->
     <!-- 偏好主题. -->
     
-    <style name="PreferenceTheme" parent="PreferenceThemeOverlay.v14.Material">
+    <!--<style name="PreferenceTheme" parent="Theme.MaterialComponents">
         <item name="android:divider">@null</item>
         <item name="android:dividerHeight">0dp</item>
-        <item name="allowDividerAfterLastItem">false</item>
+        &lt;!&ndash;<item name="allowDividerAfterLastItem">false</item>
         <item name="allowDividerAbove">false</item>
-        <item name="allowDividerBelow">false</item>
-    </style>
+        <item name="allowDividerBelow">false</item>&ndash;&gt;
+    </style>-->
 </resources>

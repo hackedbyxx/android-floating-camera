@@ -1,12 +1,13 @@
 package com.ebnbin.floatingcamera.preference
 
 import android.content.Context
-import android.support.v7.preference.PreferenceManager
+import androidx.preference.ListPreference
+import androidx.preference.PreferenceManager
 
 /**
  * [android.support.v7.preference.ListPreference].
  */
-open class ListPreference(context: Context) : android.support.v7.preference.ListPreference(context) {
+open class ListPreference(context: Context) : ListPreference(context) {
     var summaries: Array<out CharSequence>? = null
         set(value) {
             field = value

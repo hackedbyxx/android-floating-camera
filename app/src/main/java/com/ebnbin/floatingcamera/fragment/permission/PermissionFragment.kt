@@ -2,9 +2,9 @@ package com.ebnbin.floatingcamera.fragment.permission
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.ActivityNotFoundException
-import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -12,15 +12,13 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.support.annotation.RequiresApi
-import android.support.annotation.StringRes
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatDialogFragment
 import android.widget.Toast
-import com.crashlytics.android.Crashlytics
+import androidx.annotation.RequiresApi
+import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatDialogFragment
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.ebnbin.floatingcamera.R
 import com.ebnbin.floatingcamera.fragment.permission.PermissionFragment.Callback
 import com.ebnbin.floatingcamera.fragment.permission.PermissionFragment.Companion.request
@@ -46,20 +44,20 @@ class PermissionFragment : Fragment() {
     private var runtimePermissions = arrayOf<String>()
     private var enableDenied = true
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-
-        val parentFragment = parentFragment
-        val activity = activity
-        callback = when {
-            parentFragment is Callback -> parentFragment
-            activity is Callback -> activity
-            else -> throw BaseRuntimeException()
-        }
-
-        val arguments = arguments
-        if (arguments != null) initArguments(arguments)
-    }
+//    override fun onAttach(context: Context?) {
+//        super.onAttach(context)
+//
+//        val parentFragment = parentFragment
+//        val activity = activity
+//        callback = when {
+//            parentFragment is Callback -> parentFragment
+//            activity is Callback -> activity
+//            else -> throw BaseRuntimeException()
+//        }
+//
+//        val arguments = arguments
+//        if (arguments != null) initArguments(arguments)
+//    }
 
     private fun initArguments(arguments: Bundle) {
         requestCode = arguments.getInt(KEY_REQUEST_CODE)
@@ -150,7 +148,7 @@ class PermissionFragment : Fragment() {
                             .setData(Uri.parse("package:${app.packageName}"))
                     startActivityForResult(intent, REQUEST_CODE_SYSTEM_ALERT_WINDOW)
                 } catch (e: ActivityNotFoundException) {
-                    Crashlytics.logException(e)
+//                    Crashlytics.logException(e)
                     Toast.makeText(context, R.string.permission_exception_system_alert_window, Toast.LENGTH_SHORT)
                             .show()
                 }
@@ -164,7 +162,7 @@ class PermissionFragment : Fragment() {
                             .setData(Uri.parse("package:${app.packageName}"))
                     startActivityForResult(intent, REQUEST_CODE_RUNTIME_PERMISSIONS_DENIED_FOREVER)
                 } catch (e: ActivityNotFoundException) {
-                    Crashlytics.logException(e)
+//                    Crashlytics.logException(e)
                     Toast.makeText(context, R.string.permission_exception_runtime_permissions, Toast.LENGTH_SHORT)
                             .show()
                 }

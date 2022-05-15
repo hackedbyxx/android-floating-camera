@@ -4,8 +4,8 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.provider.Settings
-import android.support.annotation.RequiresApi
-import android.support.v4.content.ContextCompat
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 
 /**
  * 权限帮助类.

@@ -4,8 +4,8 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.support.v4.content.LocalBroadcastManager
-import android.support.v4.util.ArrayMap
+import androidx.collection.ArrayMap
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 
 /**
  * 本地广播帮助类.

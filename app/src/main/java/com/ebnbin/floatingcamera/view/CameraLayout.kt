@@ -3,25 +3,15 @@ package com.ebnbin.floatingcamera.view
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.support.v4.view.GestureDetectorCompat
 import android.util.AttributeSet
-import android.view.GestureDetector
-import android.view.MotionEvent
-import android.view.ScaleGestureDetector
-import android.view.ViewGroup
-import android.view.WindowManager
+import android.view.*
 import android.widget.FrameLayout
+import androidx.core.view.GestureDetectorCompat
 import com.ebnbin.floatingcamera.activity.MainActivity
 import com.ebnbin.floatingcamera.fragment.preference.CameraPreferenceFragment
 import com.ebnbin.floatingcamera.fragment.preference.WindowPreferenceFragment
 import com.ebnbin.floatingcamera.service.CameraService
-import com.ebnbin.floatingcamera.util.LocalBroadcastHelper
-import com.ebnbin.floatingcamera.util.PreferenceHelper
-import com.ebnbin.floatingcamera.util.RotationHelper
-import com.ebnbin.floatingcamera.util.Size
-import com.ebnbin.floatingcamera.util.displayRealSize
-import com.ebnbin.floatingcamera.util.sp
-import com.ebnbin.floatingcamera.util.windowManager
+import com.ebnbin.floatingcamera.util.*
 import kotlin.math.max
 import kotlin.math.min
 
@@ -31,19 +21,19 @@ class CameraLayout : FrameLayout,
         GestureDetector.OnDoubleTapListener,
         ScaleGestureDetector.OnScaleGestureListener,
         LocalBroadcastHelper.Receiver {
-    constructor(context: Context?) : super(context) {
+    constructor(context: Context?) : super(context!!) {
         init()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         init()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) :
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) :
             super(context, attrs, defStyleAttr, defStyleRes) {
         init()
     }
@@ -374,8 +364,8 @@ class CameraLayout : FrameLayout,
         val displayRealWidth = displayRealSize.width(rotation)
         val windowWidth = windowSize.width(rotation)
 
-        val xMin = 0
-        val xMax = displayRealWidth - windowWidth
+        val xMin = 0f
+        val xMax = displayRealWidth - windowWidth.toFloat()
 
         val xRange = displayRealWidth - windowWidth
         val xOffset = 0
@@ -400,8 +390,8 @@ class CameraLayout : FrameLayout,
         val displayRealHeight = displayRealSize.height(rotation)
         val windowHeight = windowSize.height(rotation)
 
-        val yMin = 0
-        val yMax = displayRealHeight - windowHeight
+        val yMin = 0f
+        val yMax = (displayRealHeight - windowHeight).toFloat()
 
         val yRange = displayRealHeight - windowHeight
         val yOffset = 0

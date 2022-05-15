@@ -5,13 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.dev.DevHelper
 import com.ebnbin.floatingcamera.fragment.permission.PermissionFragment
 import com.ebnbin.floatingcamera.service.CameraService
 import com.ebnbin.floatingcamera.util.LocalBroadcastHelper
@@ -86,7 +85,7 @@ class CameraFragment :
 
                 if (!granted) return
 
-                DevHelper.event("fab", mapOf("isRunning" to CameraService.isRunning))
+//                DevHelper.event("fab", mapOf("isRunning" to CameraService.isRunning))
 
                 if (CameraService.isRunning)
                     CameraService.postStop() else
@@ -123,7 +122,7 @@ class CameraFragment :
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
 
     override fun onPageSelected(position: Int) {
-        DevHelper.event("page", mapOf("page" to position))
+//        DevHelper.event("page", mapOf("page" to position))
         sp.put(KEY_PAGE, position)
     }
 

@@ -2,8 +2,8 @@ package com.ebnbin.floatingcamera.util
 
 import android.content.Context
 import android.graphics.Color
-import android.support.annotation.AttrRes
-import android.support.annotation.ColorInt
+import androidx.annotation.AttrRes
+import androidx.annotation.ColorInt
 
 /**
  * Gets a color attribute by [attrId], or returns [Color.TRANSPARENT] if failed.
