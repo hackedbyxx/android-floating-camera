@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -44,20 +45,20 @@ class PermissionFragment : Fragment() {
     private var runtimePermissions = arrayOf<String>()
     private var enableDenied = true
 
-//    override fun onAttach(context: Context?) {
-//        super.onAttach(context)
-//
-//        val parentFragment = parentFragment
-//        val activity = activity
-//        callback = when {
-//            parentFragment is Callback -> parentFragment
-//            activity is Callback -> activity
-//            else -> throw BaseRuntimeException()
-//        }
-//
-//        val arguments = arguments
-//        if (arguments != null) initArguments(arguments)
-//    }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        val parentFragment = parentFragment
+        val activity = activity
+        callback = when {
+            parentFragment is Callback -> parentFragment
+            activity is Callback -> activity
+            else -> throw BaseRuntimeException()
+        }
+
+        val arguments = arguments
+        if (arguments != null) initArguments(arguments)
+    }
 
     private fun initArguments(arguments: Bundle) {
         requestCode = arguments.getInt(KEY_REQUEST_CODE)

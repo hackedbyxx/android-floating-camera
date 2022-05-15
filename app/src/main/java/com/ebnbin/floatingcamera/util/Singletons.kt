@@ -8,7 +8,6 @@ import android.hardware.camera2.CameraManager
 import android.view.Display
 import android.view.WindowManager
 import androidx.preference.PreferenceManager
-import com.crashlytics.android.answers.Answers
 import com.ebnbin.floatingcamera.AppApplication
 
 /**
@@ -65,4 +64,4 @@ val sp: SharedPreferences by lazy { PreferenceManager.getDefaultSharedPreference
 /**
  * [Answers].
  */
-val answers: Answers by lazy { Answers.getInstance() }
+//val answers: Answers by lazy { Answers.getInstance() }

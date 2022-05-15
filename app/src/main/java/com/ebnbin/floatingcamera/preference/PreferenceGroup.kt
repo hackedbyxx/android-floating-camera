@@ -125,7 +125,7 @@ open class PreferenceGroup(context: Context) : androidx.preference.PreferenceGro
     private class SavedState : BaseSavedState {
         val isGroupVisible: Boolean
 
-        @RequiresApi(Build.VERSION_CODES.Q)
+//        @RequiresApi(Build.VERSION_CODES.Q)
         constructor(source: Parcel?) : super(source) {
             isGroupVisible = source?.readBoolean() ?: DEF_IS_GROUP_VISIBLE
         }
@@ -133,7 +133,7 @@ open class PreferenceGroup(context: Context) : androidx.preference.PreferenceGro
             this.isGroupVisible = isGroupVisible
         }
 
-        @RequiresApi(Build.VERSION_CODES.Q)
+//        @RequiresApi(Build.VERSION_CODES.Q)
         override fun writeToParcel(parcel: Parcel, flags: Int) {
             super.writeToParcel(parcel, flags)
 
@@ -141,7 +141,7 @@ open class PreferenceGroup(context: Context) : androidx.preference.PreferenceGro
         }
 
         companion object CREATOR : Parcelable.Creator<SavedState> {
-            @RequiresApi(Build.VERSION_CODES.Q)
+//            @RequiresApi(Build.VERSION_CODES.Q)
             override fun createFromParcel(parcel: Parcel) = SavedState(parcel)
 
             override fun newArray(size: Int) = arrayOfNulls<SavedState>(size)

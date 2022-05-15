@@ -187,6 +187,7 @@ class WindowPreferenceFragment : PreferenceFragment<WindowPreferenceFragment.Win
                 setSummary(R.string.gesture_long_press_summary)
             }
         }
+
         override fun onCreatePreferences(savedInstanceState: Bundle?) = arrayOf(
                 displayPreferenceCategory,
                 windowSizePreference,
