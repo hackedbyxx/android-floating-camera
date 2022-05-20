@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="camera_title">相机</string>
+    <string name="window_title">窗口</string>
+    <string name="other_title">其他</string>
+
+    <string name="is_front_title">摄像头</string>
+    <string name="is_front_summary_off">后置摄像头</string>
+    <string name="is_front_summary_on">前置摄像头</string>
+
+    <string name="is_photo_title">视频/照片</string>
+
+    <string name="preview_resolution_summary">%dx%d (%d:%d)</string>
+
+    <string name="video_resolution_summary_quality">, %s</string>
+    <string name="video_resolution_summary">%dx%d (%d:%d, %.2f 百万像素%s)</string>
+
+    <string name="photo_resolution_summary">%dx%d (%d:%d, %.2f 百万像素)</string>
+
+    <string name="back_is_photo_summary_off">后置摄像头视频</string>
+    <string name="back_is_photo_summary_on">后置摄像头照片</string>
+
+    <string name="back_video_profile_title">后置摄像头视频配置</string>
+    <string name="back_video_fps_title">后置摄像头视频帧数配置</string>
+
+    <string name="back_photo_resolution_title">后置摄像头照片分辨率</string>
+
+    <string name="front_is_photo_summary_off">前置摄像头视频</string>
+    <string name="front_is_photo_summary_on">前置摄像头照片</string>
+
+    <string name="front_video_profile_title">前置摄像头视频配置</string>
+
+    <string name="front_photo_resolution_title">前置摄像头照片分辨率</string>
+
+    <string name="preview_title">预览模式</string>
+    <string name="preview_entry_capture">与拍摄比例相同</string>
+    <string name="preview_entry_full">最大预览比例</string>
+    <string name="preview_entry_screen">与屏幕比例相同</string>
+    <string name="preview_entry_square">正方形</string>
+
+    <string name="window_size_title">悬浮窗大小</string>
+    <string name="window_size_summary">悬浮窗宽高占屏幕宽高的百分比</string>
+
+    <string name="window_x_title">悬浮窗水平方向位置</string>
+    <string name="window_x_summary">悬浮窗在屏幕水平方向位置的百分比</string>
+
+    <string name="window_y_title">悬浮窗垂直方向位置</string>
+    <string name="window_y_summary">悬浮窗在屏幕垂直方向位置的百分比</string>
+
+    <string name="enable_gesture_move_title">手势移动</string>
+    <string name="enable_gesture_move_summary_off">已禁用通过手势移动悬浮窗</string>
+    <string name="enable_gesture_move_summary_on">已启用通过手势移动悬浮窗</string>
+
+    <string name="enable_gesture_scale_title">手势缩放</string>
+    <string name="enable_gesture_scale_summary_off">已禁用通过手势缩放悬浮窗</string>
+    <string name="enable_gesture_scale_summary_on">已启用通过手势缩放悬浮窗</string>
+
+    <string name="window_alpha_title">悬浮窗透明度</string>
+    <string name="window_alpha_summary">悬浮窗透明度</string>
+
+    <string name="gesture_tap_title">单击拍摄</string>
+    <string name="gesture_tap_summary_off">视频模式下单击开始/结束拍摄视频，照片模式下单击拍摄照片，已禁用</string>
+    <string name="gesture_tap_summary_on">视频模式下单击开始/结束拍摄视频，照片模式下单击拍摄照片，已启用</string>
+
+    <string name="gesture_double_tap_title">双击回到应用</string>
+    <string name="gesture_double_tap_summary">在任意窗口下双击回到应用</string>
+
+    <string name="gesture_long_press_title">长按关闭窗口</string>
+    <string name="gesture_long_press_summary">长按强制关闭窗口</string>
+
+    <string name="enable_info_title">显示相机状态</string>
+    <string name="enable_info_summary_off">在窗口边缘显示边框，绿色表示视频模式，红色表示正在拍摄视频，蓝色表示照片模式，已禁用</string>
+    <string name="enable_info_summary_on">在窗口边缘显示边框，绿色表示视频模式，红色表示正在拍摄视频，蓝色表示照片模式，已启用</string>
+
+    <string name="is_touchable_title">悬浮窗点击模式</string>
+    <string name="is_touchable_summary_off">不允许点击悬浮窗，悬浮窗只作为展示界面，不可操作</string>
+    <string name="is_touchable_summary_on">允许点击悬浮窗，可以点击悬浮窗控制拍摄</string>
+
+    <string name="enable_toast_title">文件保存后弹出提醒</string>
+    <string name="enable_toast_summary_off">已禁用</string>
+    <string name="enable_toast_summary_on">已启用</string>
+
+    <string name="display_title">显示</string>
+
+    <string name="control_title">控制</string>
+
+    <string name="path_title">存储路径</string>
+    <string name="path_summary">%s</string>
+
+    <string name="is_dark_theme_title">主题</string>
+    <string name="is_dark_theme_summary_off">亮色主题</string>
+    <string name="is_dark_theme_summary_on">暗色主题</string>
+
+    <string name="about_title">关于</string>
+    <string name="about_summary">%s\n不稳定版本</string>
+</resources>

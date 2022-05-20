@@ -1,0 +1,29 @@
+buildscript {
+    ext.kotlin_version = '1.5.0' // https://github.com/JetBrains/kotlin
+
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+//        classpath 'com.google.gms:google-services:3.3.0' // https://bintray.com/android/android-tools/com.google.gms.google-services/
+//        classpath 'io.fabric.tools:gradle:1.25.3' // https://docs.fabric.io/android/changelog.html
+    }
+}
+
+version = '0.5.1'
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
