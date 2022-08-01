@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.view
+package com.xx.floatingcamera.view
 
 import android.content.Context
 import android.content.Intent
@@ -7,11 +7,11 @@ import android.support.v4.view.GestureDetectorCompat
 import android.util.AttributeSet
 import android.view.*
 import android.widget.FrameLayout
-import com.ebnbin.floatingcamera.activity.MainActivity
-import com.ebnbin.floatingcamera.fragment.preference.CameraPreferenceFragment
-import com.ebnbin.floatingcamera.fragment.preference.WindowPreferenceFragment
-import com.ebnbin.floatingcamera.service.CameraService
-import com.ebnbin.floatingcamera.util.*
+import com.xx.floatingcamera.activity.MainActivity
+import com.xx.floatingcamera.fragment.preference.CameraPreferenceFragment
+import com.xx.floatingcamera.fragment.preference.WindowPreferenceFragment
+import com.xx.floatingcamera.service.CameraService
+import com.xx.floatingcamera.util.*
 import kotlin.math.max
 import kotlin.math.min
 

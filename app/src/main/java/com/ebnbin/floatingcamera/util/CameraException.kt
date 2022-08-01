@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.util
+package com.xx.floatingcamera.util
 
 /**
  * 相机异常.

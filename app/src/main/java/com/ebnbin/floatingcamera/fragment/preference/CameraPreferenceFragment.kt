@@ -1,19 +1,19 @@
-package com.ebnbin.floatingcamera.fragment.preference
+package com.xx.floatingcamera.fragment.preference
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v14.preference.SwitchPreference
-import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.preference.ListPreference
-import com.ebnbin.floatingcamera.preference.PreferenceFragment
-import com.ebnbin.floatingcamera.preference.PreferenceGroup
-import com.ebnbin.floatingcamera.preference.RootPreferenceGroup
-import com.ebnbin.floatingcamera.util.CameraHelper
-import com.ebnbin.floatingcamera.util.Preview
-import com.ebnbin.floatingcamera.util.extension.get
-import com.ebnbin.floatingcamera.util.extension.setEntriesAndEntryValues
-import com.ebnbin.floatingcamera.util.sp
+import com.xx.floatingcamera.R
+import com.xx.floatingcamera.preference.ListPreference
+import com.xx.floatingcamera.preference.PreferenceFragment
+import com.xx.floatingcamera.preference.PreferenceGroup
+import com.xx.floatingcamera.preference.RootPreferenceGroup
+import com.xx.floatingcamera.util.CameraHelper
+import com.xx.floatingcamera.util.Preview
+import com.xx.floatingcamera.util.extension.get
+import com.xx.floatingcamera.util.extension.setEntriesAndEntryValues
+import com.xx.floatingcamera.util.sp
 
 /**
  * 相机偏好界面.

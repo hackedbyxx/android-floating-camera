@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.util
+package com.xx.floatingcamera.util
 
 import android.content.BroadcastReceiver
 import android.content.Context

@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.util
+package com.xx.floatingcamera.util
 
 import android.graphics.ImageFormat
 import android.graphics.SurfaceTexture
@@ -8,11 +8,11 @@ import android.hardware.camera2.CameraMetadata
 import android.hardware.camera2.params.StreamConfigurationMap
 import android.media.CamcorderProfile
 import android.util.Size
-import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.util.extension.extensionEquals
-import com.ebnbin.floatingcamera.util.extension.extensionHashCode
-import com.ebnbin.floatingcamera.util.extension.gcd
-import com.ebnbin.floatingcamera.util.extension.qualityString
+import com.xx.floatingcamera.R
+import com.xx.floatingcamera.util.extension.extensionEquals
+import com.xx.floatingcamera.util.extension.extensionHashCode
+import com.xx.floatingcamera.util.extension.gcd
+import com.xx.floatingcamera.util.extension.qualityString
 import kotlin.math.min
 
 /**
@@ -513,7 +513,7 @@ object CameraHelper {
                     CamcorderProfile.QUALITY_HIGH_SPEED_2160P,
                     CamcorderProfile.QUALITY_2160P,
                     CamcorderProfile.QUALITY_HIGH_SPEED_1080P,
-//                    CamcorderProfile.QUALITY_1080P,
+                    CamcorderProfile.QUALITY_1080P,
                     CamcorderProfile.QUALITY_720P,
                     CamcorderProfile.QUALITY_480P,
                     CamcorderProfile.QUALITY_CIF,

@@ -1,5 +1,5 @@
-package com.ebnbin.floatingcamera.fragment.feedback
+package com.xx.floatingcamera.fragment.feedback
 
-import com.ebnbin.floatingcamera.util.BaseRuntimeException
+import com.xx.floatingcamera.util.BaseRuntimeException
 
 class FeedbackException(message: String) : BaseRuntimeException(message)

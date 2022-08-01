@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.preference
+package com.xx.floatingcamera.preference
 
 import android.content.Context
 import android.os.Parcel
@@ -6,8 +6,8 @@ import android.os.Parcelable
 import android.support.v7.preference.Preference
 import android.support.v7.preference.PreferenceCategory
 import android.support.v7.preference.PreferenceManager
-import com.ebnbin.floatingcamera.util.extension.readBoolean
-import com.ebnbin.floatingcamera.util.extension.writeBoolean
+import com.xx.floatingcamera.util.extension.readBoolean
+import com.xx.floatingcamera.util.extension.writeBoolean
 
 /**
  * [android.support.v7.preference.PreferenceGroup].

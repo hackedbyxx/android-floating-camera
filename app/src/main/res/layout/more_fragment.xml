@@ -19,8 +19,8 @@
     </android.support.design.widget.AppBarLayout>
 
     <fragment
-        android:name="com.ebnbin.floatingcamera.fragment.more.MorePreferenceFragment"
-        android:tag="com.ebnbin.floatingcamera.fragment.more.MorePreferenceFragment"
+        android:name="com.xx.floatingcamera.fragment.more.MorePreferenceFragment"
+        android:tag="com.xx.floatingcamera.fragment.more.MorePreferenceFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>

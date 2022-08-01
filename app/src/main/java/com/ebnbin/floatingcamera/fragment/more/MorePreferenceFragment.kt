@@ -1,17 +1,17 @@
-package com.ebnbin.floatingcamera.fragment.more
+package com.xx.floatingcamera.fragment.more
 
 import android.content.Context
 import android.os.Bundle
 import android.support.v14.preference.SwitchPreference
 import android.support.v7.preference.Preference
-import com.ebnbin.floatingcamera.BuildConfig
-import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.fragment.feedback.FeedbackDialogFragment
-import com.ebnbin.floatingcamera.preference.PreferenceFragment
-import com.ebnbin.floatingcamera.preference.RootPreferenceGroup
-import com.ebnbin.floatingcamera.util.extension.get
-import com.ebnbin.floatingcamera.util.res
-import com.ebnbin.floatingcamera.util.sp
+import com.xx.floatingcamera.BuildConfig
+import com.xx.floatingcamera.R
+import com.xx.floatingcamera.fragment.feedback.FeedbackDialogFragment
+import com.xx.floatingcamera.preference.PreferenceFragment
+import com.xx.floatingcamera.preference.RootPreferenceGroup
+import com.xx.floatingcamera.util.extension.get
+import com.xx.floatingcamera.util.res
+import com.xx.floatingcamera.util.sp
 
 /**
  * 其他偏好界面.

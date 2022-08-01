@@ -1,12 +1,12 @@
-package com.ebnbin.floatingcamera
+package com.xx.floatingcamera
 
 import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import com.ebnbin.floatingcamera.fragment.camera.CameraFragment
-import com.ebnbin.floatingcamera.util.*
-import com.ebnbin.floatingcamera.util.extension.get
-import com.ebnbin.floatingcamera.util.extension.put
+import com.xx.floatingcamera.fragment.camera.CameraFragment
+import com.xx.floatingcamera.util.*
+import com.xx.floatingcamera.util.extension.get
+import com.xx.floatingcamera.util.extension.put
 
 /**
  * 应用 [Application] 类.

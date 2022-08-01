@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.fragment.preference
+package com.xx.floatingcamera.fragment.preference
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -7,13 +7,13 @@ import android.support.v14.preference.SwitchPreference
 import android.support.v7.preference.Preference
 import android.support.v7.preference.PreferenceCategory
 import android.support.v7.preference.SeekBarPreference
-import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.preference.PreferenceFragment
-import com.ebnbin.floatingcamera.preference.PreferenceGroup
-import com.ebnbin.floatingcamera.preference.RootPreferenceGroup
-import com.ebnbin.floatingcamera.util.extension.get
-import com.ebnbin.floatingcamera.util.extension.put
-import com.ebnbin.floatingcamera.util.sp
+import com.xx.floatingcamera.R
+import com.xx.floatingcamera.preference.PreferenceFragment
+import com.xx.floatingcamera.preference.PreferenceGroup
+import com.xx.floatingcamera.preference.RootPreferenceGroup
+import com.xx.floatingcamera.util.extension.get
+import com.xx.floatingcamera.util.extension.put
+import com.xx.floatingcamera.util.sp
 
 /**
  * 窗口偏好界面.

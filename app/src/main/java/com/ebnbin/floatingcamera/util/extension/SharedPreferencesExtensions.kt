@@ -1,8 +1,8 @@
-package com.ebnbin.floatingcamera.util.extension
+package com.xx.floatingcamera.util.extension
 
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
-import com.ebnbin.floatingcamera.util.BaseRuntimeException
+import com.xx.floatingcamera.util.BaseRuntimeException
 
 /**
  * 读 [SharedPreferences].

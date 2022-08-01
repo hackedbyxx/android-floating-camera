@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.fragment.permission
+package com.xx.floatingcamera.fragment.permission
 
 import android.Manifest
 import android.app.Activity
@@ -20,11 +20,11 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatDialogFragment
 import android.widget.Toast
-import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.fragment.permission.PermissionFragment.Callback
-import com.ebnbin.floatingcamera.fragment.permission.PermissionFragment.Companion.request
-import com.ebnbin.floatingcamera.util.BaseRuntimeException
-import com.ebnbin.floatingcamera.util.app
+import com.xx.floatingcamera.R
+import com.xx.floatingcamera.fragment.permission.PermissionFragment.Callback
+import com.xx.floatingcamera.fragment.permission.PermissionFragment.Companion.request
+import com.xx.floatingcamera.util.BaseRuntimeException
+import com.xx.floatingcamera.util.app
 
 /**
  * 权限界面.

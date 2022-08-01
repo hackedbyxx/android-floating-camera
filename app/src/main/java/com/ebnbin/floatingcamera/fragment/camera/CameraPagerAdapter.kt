@@ -1,14 +1,14 @@
-package com.ebnbin.floatingcamera.fragment.camera
+package com.xx.floatingcamera.fragment.camera
 
 import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.fragment.preference.CameraPreferenceFragment
-import com.ebnbin.floatingcamera.fragment.preference.OtherPreferenceFragment
-import com.ebnbin.floatingcamera.fragment.preference.WindowPreferenceFragment
-import com.ebnbin.floatingcamera.util.res
+import com.xx.floatingcamera.R
+import com.xx.floatingcamera.fragment.preference.CameraPreferenceFragment
+import com.xx.floatingcamera.fragment.preference.OtherPreferenceFragment
+import com.xx.floatingcamera.fragment.preference.WindowPreferenceFragment
+import com.xx.floatingcamera.util.res
 
 class CameraPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getItem(position: Int) = ITEMS[position].createFragment()

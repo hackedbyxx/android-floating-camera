@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.fragment.camera
+package com.xx.floatingcamera.fragment.camera
 
 import android.Manifest
 import android.content.Context
@@ -10,15 +10,15 @@ import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.fragment.permission.PermissionFragment
-import com.ebnbin.floatingcamera.service.CameraService
-import com.ebnbin.floatingcamera.util.LocalBroadcastHelper
-import com.ebnbin.floatingcamera.util.PreferenceHelper
-import com.ebnbin.floatingcamera.util.extension.get
-import com.ebnbin.floatingcamera.util.extension.put
-import com.ebnbin.floatingcamera.util.getColorAttr
-import com.ebnbin.floatingcamera.util.sp
+import com.xx.floatingcamera.R
+import com.xx.floatingcamera.fragment.permission.PermissionFragment
+import com.xx.floatingcamera.service.CameraService
+import com.xx.floatingcamera.util.LocalBroadcastHelper
+import com.xx.floatingcamera.util.PreferenceHelper
+import com.xx.floatingcamera.util.extension.get
+import com.xx.floatingcamera.util.extension.put
+import com.xx.floatingcamera.util.getColorAttr
+import com.xx.floatingcamera.util.sp
 import kotlinx.android.synthetic.main.camera_fragment.*
 
 /**

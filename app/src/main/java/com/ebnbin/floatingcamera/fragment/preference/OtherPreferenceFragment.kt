@@ -1,13 +1,13 @@
-package com.ebnbin.floatingcamera.fragment.preference
+package com.xx.floatingcamera.fragment.preference
 
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.preference.Preference
-import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.preference.PreferenceFragment
-import com.ebnbin.floatingcamera.preference.RootPreferenceGroup
-import com.ebnbin.floatingcamera.util.FileUtil
-import com.ebnbin.floatingcamera.util.res
+import com.xx.floatingcamera.R
+import com.xx.floatingcamera.preference.PreferenceFragment
+import com.xx.floatingcamera.preference.RootPreferenceGroup
+import com.xx.floatingcamera.util.FileUtil
+import com.xx.floatingcamera.util.res
 
 /**
  * 其他偏好界面.

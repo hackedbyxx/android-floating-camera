@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.activity
+package com.xx.floatingcamera.activity
 
 import android.app.ActivityManager
 import android.content.Context
@@ -9,11 +9,11 @@ import android.graphics.Canvas
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
-import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.fragment.main.MainFragment
-import com.ebnbin.floatingcamera.fragment.more.MorePreferenceFragment
-import com.ebnbin.floatingcamera.util.*
-import com.ebnbin.floatingcamera.util.extension.dpInt
+import com.xx.floatingcamera.R
+import com.xx.floatingcamera.fragment.main.MainFragment
+import com.xx.floatingcamera.fragment.more.MorePreferenceFragment
+import com.xx.floatingcamera.util.*
+import com.xx.floatingcamera.util.extension.dpInt
 
 class MainActivity :
         AppCompatActivity(),

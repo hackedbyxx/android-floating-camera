@@ -1,9 +1,9 @@
-package com.ebnbin.floatingcamera.preference
+package com.xx.floatingcamera.preference
 
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.preference.PreferenceFragmentCompat
-import com.ebnbin.floatingcamera.R
+import com.xx.floatingcamera.R
 
 /**
  * 基础偏好界面.

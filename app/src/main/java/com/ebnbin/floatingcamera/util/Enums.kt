@@ -1,6 +1,6 @@
-package com.ebnbin.floatingcamera.util
+package com.xx.floatingcamera.util
 
-import com.ebnbin.floatingcamera.R
+import com.xx.floatingcamera.R
 
 /**
  * 预览.

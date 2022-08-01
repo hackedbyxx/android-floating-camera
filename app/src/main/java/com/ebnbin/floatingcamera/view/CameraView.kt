@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.view
+package com.xx.floatingcamera.view
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -21,12 +21,12 @@ import android.util.Range
 import android.view.Surface
 import android.view.TextureView
 import android.widget.Toast
-import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.fragment.preference.CameraPreferenceFragment
-import com.ebnbin.floatingcamera.fragment.preference.WindowPreferenceFragment
-import com.ebnbin.floatingcamera.service.CameraService
-import com.ebnbin.floatingcamera.util.*
-import com.ebnbin.floatingcamera.util.extension.fileFormatExtension
+import com.xx.floatingcamera.R
+import com.xx.floatingcamera.fragment.preference.CameraPreferenceFragment
+import com.xx.floatingcamera.fragment.preference.WindowPreferenceFragment
+import com.xx.floatingcamera.service.CameraService
+import com.xx.floatingcamera.util.*
+import com.xx.floatingcamera.util.extension.fileFormatExtension
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException

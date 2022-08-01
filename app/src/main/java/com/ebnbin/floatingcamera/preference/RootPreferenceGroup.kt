@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.preference
+package com.xx.floatingcamera.preference
 
 import android.content.Context
 import android.content.SharedPreferences

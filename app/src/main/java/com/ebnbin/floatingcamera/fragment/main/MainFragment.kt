@@ -1,17 +1,17 @@
-package com.ebnbin.floatingcamera.fragment.main
+package com.xx.floatingcamera.fragment.main
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.fragment.album.AlbumFragment
-import com.ebnbin.floatingcamera.fragment.camera.CameraFragment
-import com.ebnbin.floatingcamera.fragment.more.MoreFragment
-import com.ebnbin.floatingcamera.util.extension.get
-import com.ebnbin.floatingcamera.util.extension.put
-import com.ebnbin.floatingcamera.util.sp
+import com.xx.floatingcamera.R
+import com.xx.floatingcamera.fragment.album.AlbumFragment
+import com.xx.floatingcamera.fragment.camera.CameraFragment
+import com.xx.floatingcamera.fragment.more.MoreFragment
+import com.xx.floatingcamera.util.extension.get
+import com.xx.floatingcamera.util.extension.put
+import com.xx.floatingcamera.util.sp
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class MainFragment : Fragment() {

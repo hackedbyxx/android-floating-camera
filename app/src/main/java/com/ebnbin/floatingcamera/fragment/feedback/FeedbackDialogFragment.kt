@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.fragment.feedback
+package com.xx.floatingcamera.fragment.feedback
 
 import android.app.Dialog
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.support.v7.app.AlertDialog
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
-import com.ebnbin.floatingcamera.R
+import com.xx.floatingcamera.R
 
 class FeedbackDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.service
+package com.xx.floatingcamera.service
 
 import android.os.Build
 import android.service.quicksettings.Tile
@@ -18,6 +18,7 @@ class QuickStartControlService : TileService() {
         }
     }
     var state: Int = Tile.STATE_INACTIVE
+
     fun refresh() {
         qsTile.state = state
         qsTile.updateTile()

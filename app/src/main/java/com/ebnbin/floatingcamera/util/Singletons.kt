@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.util
+package com.xx.floatingcamera.util
 
 import android.app.NotificationManager
 import android.content.Context
@@ -8,7 +8,7 @@ import android.hardware.camera2.CameraManager
 import android.support.v7.preference.PreferenceManager
 import android.view.Display
 import android.view.WindowManager
-import com.ebnbin.floatingcamera.AppApplication
+import com.xx.floatingcamera.AppApplication
 
 /**
  * Application 单例.

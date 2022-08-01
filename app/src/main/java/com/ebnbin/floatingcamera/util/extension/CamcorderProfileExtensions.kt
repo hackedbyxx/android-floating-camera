@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.util.extension
+package com.xx.floatingcamera.util.extension
 
 import android.media.CamcorderProfile
 import android.media.MediaRecorder

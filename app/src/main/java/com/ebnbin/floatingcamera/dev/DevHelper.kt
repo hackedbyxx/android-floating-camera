@@ -1,7 +1,7 @@
-//package com.ebnbin.floatingcamera.dev
+//package com.xx.floatingcamera.dev
 //
 //import com.crashlytics.android.answers.CustomEvent
-//import com.ebnbin.floatingcamera.util.answers
+//import com.xx.floatingcamera.util.answers
 //
 //object DevHelper {
 //    fun event(name: String, attributes: Map<String, *>? = null) {

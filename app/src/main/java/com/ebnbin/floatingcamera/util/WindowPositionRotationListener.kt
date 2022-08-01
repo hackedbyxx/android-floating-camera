@@ -1,6 +1,6 @@
-package com.ebnbin.floatingcamera.util
+package com.xx.floatingcamera.util
 
-import com.ebnbin.floatingcamera.fragment.preference.WindowPreferenceFragment
+import com.xx.floatingcamera.fragment.preference.WindowPreferenceFragment
 
 /**
  * 用于更新窗口位置的 [RotationHelper.Listener].

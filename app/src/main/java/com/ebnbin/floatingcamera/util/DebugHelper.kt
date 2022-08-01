@@ -1,7 +1,7 @@
-package com.ebnbin.floatingcamera.util
+package com.xx.floatingcamera.util
 
 import android.util.Log
-import com.ebnbin.floatingcamera.BuildConfig
+import com.xx.floatingcamera.BuildConfig
 
 /**
  * Debug 帮助类.

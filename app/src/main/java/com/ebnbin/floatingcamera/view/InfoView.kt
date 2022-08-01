@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.view
+package com.xx.floatingcamera.view
 
 import android.content.Context
 import android.content.Intent
@@ -8,12 +8,12 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import com.ebnbin.floatingcamera.fragment.preference.CameraPreferenceFragment
-import com.ebnbin.floatingcamera.fragment.preference.WindowPreferenceFragment
-import com.ebnbin.floatingcamera.util.LocalBroadcastHelper
-import com.ebnbin.floatingcamera.util.PreferenceHelper
-import com.ebnbin.floatingcamera.util.extension.dp
-import com.ebnbin.floatingcamera.util.sp
+import com.xx.floatingcamera.fragment.preference.CameraPreferenceFragment
+import com.xx.floatingcamera.fragment.preference.WindowPreferenceFragment
+import com.xx.floatingcamera.util.LocalBroadcastHelper
+import com.xx.floatingcamera.util.PreferenceHelper
+import com.xx.floatingcamera.util.extension.dp
+import com.xx.floatingcamera.util.sp
 
 class InfoView(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0) :
         View(context, attrs, defStyleAttr, defStyleRes),

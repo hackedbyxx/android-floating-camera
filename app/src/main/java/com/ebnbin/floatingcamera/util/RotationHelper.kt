@@ -1,11 +1,11 @@
-package com.ebnbin.floatingcamera.util
+package com.xx.floatingcamera.util
 
 import android.content.ComponentCallbacks
 import android.content.Context
 import android.support.v4.util.ArrayMap
 import android.view.OrientationEventListener
-import com.ebnbin.floatingcamera.util.extension.get
-import com.ebnbin.floatingcamera.util.extension.put
+import com.xx.floatingcamera.util.extension.get
+import com.xx.floatingcamera.util.extension.put
 
 /**
  * 屏幕旋转方向帮助类.

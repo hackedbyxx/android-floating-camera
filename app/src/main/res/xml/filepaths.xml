@@ -2,6 +2,6 @@
 <resources>
     <paths>
         <external-path
-            name="com.ebnbin.floatingcamera"/>
+            name="com.xx.floatingcamera"/>
     </paths>
 </resources>

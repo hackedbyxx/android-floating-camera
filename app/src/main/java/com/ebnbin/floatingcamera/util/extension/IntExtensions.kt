@@ -1,6 +1,6 @@
-package com.ebnbin.floatingcamera.util.extension
+package com.xx.floatingcamera.util.extension
 
-import com.ebnbin.floatingcamera.util.res
+import com.xx.floatingcamera.util.res
 
 /**
  * Dp 转化 px. 例如 160dp = 320px 则 `160.dp = 320f`.

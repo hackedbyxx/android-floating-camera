@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.fragment.album
+package com.xx.floatingcamera.fragment.album
 
 import android.Manifest
 import android.os.Bundle
@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.fragment.permission.PermissionFragment
+import com.xx.floatingcamera.R
+import com.xx.floatingcamera.fragment.permission.PermissionFragment
 
 class AlbumFragment : Fragment(), PermissionFragment.Callback {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

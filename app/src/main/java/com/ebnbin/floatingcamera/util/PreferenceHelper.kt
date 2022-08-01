@@ -1,8 +1,8 @@
-package com.ebnbin.floatingcamera.util
+package com.xx.floatingcamera.util
 
-import com.ebnbin.floatingcamera.fragment.more.MorePreferenceFragment
-import com.ebnbin.floatingcamera.fragment.preference.CameraPreferenceFragment
-import com.ebnbin.floatingcamera.fragment.preference.WindowPreferenceFragment
+import com.xx.floatingcamera.fragment.more.MorePreferenceFragment
+import com.xx.floatingcamera.fragment.preference.CameraPreferenceFragment
+import com.xx.floatingcamera.fragment.preference.WindowPreferenceFragment
 
 /**
  * 偏好帮助类.

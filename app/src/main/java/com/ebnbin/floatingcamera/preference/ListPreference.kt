@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.preference
+package com.xx.floatingcamera.preference
 
 import android.content.Context
 import android.support.v7.preference.PreferenceManager
@@ -58,18 +58,18 @@ open class ListPreference(context: Context) : android.support.v7.preference.List
     private fun getValueIndex(value: String = this.value) = findIndexOfValue(value)
 
     @Deprecated("使用 setEntriesAndEntryValues 代替.", ReplaceWith("setEntriesAndEntryValues(entries)",
-            "com.ebnbin.floatingcamera.util.extension.setEntriesAndEntryValues"))
+            "com.xx.floatingcamera.util.extension.setEntriesAndEntryValues"))
     override fun setEntries(entries: Array<out CharSequence>?) = super.setEntries(entries)
 
     @Deprecated("使用 setEntriesAndEntryValues 代替.", ReplaceWith("setEntriesAndEntryValues(entries)",
-            "com.ebnbin.floatingcamera.util.extension.setEntriesAndEntryValues"))
+            "com.xx.floatingcamera.util.extension.setEntriesAndEntryValues"))
     override fun setEntries(entriesResId: Int) = super.setEntries(entriesResId)
 
     @Deprecated("使用 setEntriesAndEntryValues 代替.", ReplaceWith("setEntriesAndEntryValues(entries)",
-            "com.ebnbin.floatingcamera.util.extension.setEntriesAndEntryValues"))
+            "com.xx.floatingcamera.util.extension.setEntriesAndEntryValues"))
     override fun setEntryValues(entryValues: Array<out CharSequence>?) = super.setEntryValues(entryValues)
 
     @Deprecated("使用 setEntriesAndEntryValues 代替.", ReplaceWith("setEntriesAndEntryValues(entries)",
-            "com.ebnbin.floatingcamera.util.extension.setEntriesAndEntryValues"))
+            "com.xx.floatingcamera.util.extension.setEntriesAndEntryValues"))
     override fun setEntryValues(entryValuesResId: Int) = super.setEntryValues(entryValuesResId)
 }
