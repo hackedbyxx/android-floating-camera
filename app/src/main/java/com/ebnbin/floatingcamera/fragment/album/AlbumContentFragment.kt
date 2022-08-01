@@ -1,4 +1,4 @@
-package com.ebnbin.floatingcamera.fragment.album
+package com.xx.floatingcamera.fragment.album
 
 import android.content.Intent
 import android.net.Uri
@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AlertDialog
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -15,11 +14,11 @@ import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.ebnbin.floatingcamera.R
-import com.ebnbin.floatingcamera.util.BaseRuntimeException
-import com.ebnbin.floatingcamera.util.FileUtil
-import com.ebnbin.floatingcamera.util.getColorAttr
-import com.ebnbin.floatingcamera.util.res
+import com.xx.floatingcamera.R
+import com.xx.floatingcamera.util.BaseRuntimeException
+import com.xx.floatingcamera.util.FileUtil
+import com.xx.floatingcamera.util.getColorAttr
+import com.xx.floatingcamera.util.res
 import kotlinx.android.synthetic.main.album_content_fragment.*
 import java.io.File
 
@@ -39,23 +38,23 @@ class AlbumContentFragment : Fragment() {
                 android.R.attr.windowBackground))
         swipeRefreshLayout.setColorSchemeColors(getColorAttr(context, R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener {
-            adapter?.invalidateFile()
+//            adapter?.invalidateFile()
             swipeRefreshLayout.isRefreshing = false
         }
-
-        view.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                if (view.measuredWidth <= 0) return
-
-                view.viewTreeObserver.removeOnGlobalLayoutListener(this)
-
-                val spanCount = (view.measuredWidth / res.displayMetrics.density / 160).toInt()
-                val gridLayoutManager = GridLayoutManager(context, spanCount)
-                recyclerView.layoutManager = gridLayoutManager
-                adapter = AlbumAdapter()
-                recyclerView.adapter = adapter
-            }
-        })
+//
+//        view.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+//            override fun onGlobalLayout() {
+//                if (view.measuredWidth <= 0) return
+//
+//                view.viewTreeObserver.removeOnGlobalLayoutListener(this)
+//
+//                val spanCount = (view.measuredWidth / res.displayMetrics.density / 160).toInt()
+//                val gridLayoutManager = GridLayoutManager(context, spanCount)
+//                recyclerView.layoutManager = gridLayoutManager
+//                adapter = AlbumAdapter()
+//                recyclerView.adapter = adapter
+//            }
+//        })
     }
 
     private inner class AlbumAdapter : RecyclerView.Adapter<AlbumViewHolder>() {
@@ -96,7 +95,7 @@ class AlbumContentFragment : Fragment() {
                     intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     val uri = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) Uri.fromFile(file) else
-                        FileProvider.getUriForFile(context, "com.ebnbin.floatingcamera.fileprovider", file)
+                        FileProvider.getUriForFile(context, "com.xx.floatingcamera.fileprovider", file)
                     val type = if (isPhoto) "image/*" else "video/*"
                     intent.setDataAndType(uri, type)
                     startActivity(intent)
