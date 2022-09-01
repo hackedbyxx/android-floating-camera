@@ -45,7 +45,7 @@ class CameraLayout : FrameLayout,
         cameraView = CameraView(context)
         infoView = InfoView(context)
 
-        val params = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        val params = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
         addView(cameraView, params)
         addView(infoView, params)
@@ -239,6 +239,7 @@ class CameraLayout : FrameLayout,
         e ?: return
 
         finish()
+        cameraView.vibrate(500)
     }
 
     /**

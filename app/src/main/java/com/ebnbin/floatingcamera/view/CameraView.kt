@@ -3,6 +3,7 @@ package com.xx.floatingcamera.view
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Context.VIBRATOR_SERVICE
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.ImageFormat
@@ -15,6 +16,7 @@ import android.media.MediaRecorder
 import android.os.Build
 import android.os.Handler
 import android.os.HandlerThread
+import android.os.Vibrator
 import android.util.AttributeSet
 import android.util.Log
 import android.util.Range
@@ -545,9 +547,19 @@ open class CameraView(context: Context, attrs: AttributeSet? = null, defStyleAtt
     protected fun toggleRecord() {
         if (isRecording) {
             stopRecord(true)
+            vibrate(500)
         } else {
             startRecord()
+            vibrate(200)
         }
+    }
+
+    /**
+     * 振动
+     */
+    public fun vibrate(milliseconds:Long) {
+        var vibrator = context.getSystemService(VIBRATOR_SERVICE) as Vibrator;
+        vibrator.vibrate(milliseconds);
     }
 
     //*****************************************************************************************************************

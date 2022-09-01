@@ -7,6 +7,8 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.Build
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.support.v4.app.NotificationCompat
 import android.view.Gravity
 import android.view.WindowManager
@@ -120,6 +122,8 @@ class CameraService : Service(), LocalBroadcastHelper.Receiver {
 
         fun stop(context: Context = app) {
             context.stopService(Intent(context, CameraService::class.java))
+            var vibrator = context.getSystemService(VIBRATOR_SERVICE) as Vibrator;
+            vibrator.vibrate(500);
         }
 
         fun postStop() {
