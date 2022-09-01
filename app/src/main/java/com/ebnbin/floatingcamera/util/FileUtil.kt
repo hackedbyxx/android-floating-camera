@@ -2,6 +2,8 @@ package com.xx.floatingcamera.util
 
 import android.os.Environment
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * 文件工具类.
@@ -13,5 +15,5 @@ object FileUtil {
         return path
     }
 
-    fun getFile(extension: String) = File(getPath(), "${System.currentTimeMillis()}$extension")
+    fun getFile(extension: String) = File(getPath(), "${SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())}$extension")
 }
