@@ -32,6 +32,11 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 27
 
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
     defaultConfig {
         minSdkVersion 23
         targetSdkVersion 27
@@ -51,7 +56,7 @@ android {
 //        }
 //    }
 //
-//    buildTypes {
+    buildTypes {
 //        release {
 //            signingConfig signingConfigs.release
 //            minifyEnabled true
@@ -62,7 +67,24 @@ android {
 //            signingConfig signingConfigs.release
 //            ext.enableCrashlytics = false
 //        }
-//    }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        android.applicationVariants.all { variant ->
+            variant.outputs.all {
+                if (variant.buildType.name.equals('release')) {
+                    // 自定义输出路径
+                    variant.getPackageApplication().outputDirectory = new File(project.rootDir.absolutePath + File.separator + "apk")
+                    outputFileName = "live-${variant.versionName}.apk"
+                } else if (variant.buildType.name.equals('debug')) {
+//                    variant.getPackageApplication().outputDirectory = new File(project.rootDir.absolutePath + File.separator + "apk")
+//                    outputFileName = "${variant.applicationId}_${variant.name}_${variant.versionName}.apk"
+                }
+            }
+        }
+    }
 }
 
 dependencies {

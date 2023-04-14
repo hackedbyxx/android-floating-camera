@@ -12,28 +12,34 @@ import android.support.annotation.RequiresApi
 class QuickStartControlService : TileService() {
     override fun onStartListening() {
         super.onStartListening()
-        if (!CameraService.isRunning) {
-            state = Tile.STATE_INACTIVE
-            refresh()
+        if (CameraService.isRunning) {
+            refresh(Tile.STATE_ACTIVE)
+        } else {
+            refresh(Tile.STATE_INACTIVE)
         }
     }
+
+    override fun onStopListening() {
+        super.onStopListening()
+    }
+
     var state: Int = Tile.STATE_INACTIVE
 
-    fun refresh() {
+    fun refresh(state:Int) {
         qsTile.state = state
         qsTile.updateTile()
     }
 
     override fun onClick() {
+        super.onClick();
 //        Log.i(TAG, "onClick")
         if (CameraService.isRunning) {
-            state = Tile.STATE_INACTIVE
+            refresh(Tile.STATE_INACTIVE)
             CameraService.postStop()
         } else {
-            state = Tile.STATE_ACTIVE
+            refresh(Tile.STATE_ACTIVE)
             CameraService.start()
         }
-        refresh()
     }
 
     companion object {
