@@ -77,7 +77,7 @@ android {
                 if (variant.buildType.name.equals('release')) {
                     // 自定义输出路径
                     variant.getPackageApplication().outputDirectory = new File(project.rootDir.absolutePath + File.separator + "apk")
-                    outputFileName = "live-${variant.versionName}.apk"
+                    outputFileName = "floating-camera-${variant.versionName}.apk"
                 } else if (variant.buildType.name.equals('debug')) {
 //                    variant.getPackageApplication().outputDirectory = new File(project.rootDir.absolutePath + File.separator + "apk")
 //                    outputFileName = "${variant.applicationId}_${variant.name}_${variant.versionName}.apk"
