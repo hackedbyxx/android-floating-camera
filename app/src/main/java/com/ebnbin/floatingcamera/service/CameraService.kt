@@ -3,17 +3,27 @@ package com.xx.floatingcamera.service
 import android.Manifest
 import android.app.PendingIntent
 import android.app.Service
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.Build
+import android.service.quicksettings.TileService
 import android.support.v4.app.NotificationCompat
 import android.view.Gravity
 import android.view.WindowManager
 import android.widget.Toast
+import com.xx.floatingcamera.BuildConfig
 import com.xx.floatingcamera.R
 import com.xx.floatingcamera.receiver.StopCameraServiceBroadcastReceiver
-import com.xx.floatingcamera.util.*
+import com.xx.floatingcamera.util.LocalBroadcastHelper
+import com.xx.floatingcamera.util.PermissionHelper
+import com.xx.floatingcamera.util.PreferenceHelper
+import com.xx.floatingcamera.util.RotationHelper
+import com.xx.floatingcamera.util.app
+import com.xx.floatingcamera.util.notificationManager
+import com.xx.floatingcamera.util.res
+import com.xx.floatingcamera.util.windowManager
 import com.xx.floatingcamera.view.CameraLayout
 import com.xx.floatingcamera.widget.CameraAppWidgetProvider
 
@@ -35,6 +45,12 @@ class CameraService : Service(), LocalBroadcastHelper.Receiver {
         LocalBroadcastHelper.register(this, ACTION_POST_STOP)
 
         isRunning = true
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            TileService.requestListeningState(applicationContext, ComponentName(
+                    BuildConfig.APPLICATION_ID,
+                    QuickStartControlService::class.java.name
+            ))
+        }
         LocalBroadcastHelper.send(ACTION_CAMERA_SERVICE_IS_RUNNING, Intent().putExtra(KEY_IS_RUNNING, isRunning))
 
         RotationHelper.registerAndEnable(this)
@@ -93,6 +109,12 @@ class CameraService : Service(), LocalBroadcastHelper.Receiver {
         RotationHelper.unregister(this)
 
         isRunning = false
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            TileService.requestListeningState(applicationContext, ComponentName(
+                    BuildConfig.APPLICATION_ID,
+                    QuickStartControlService::class.java.name
+            ))
+        }
         LocalBroadcastHelper.send(ACTION_CAMERA_SERVICE_IS_RUNNING, Intent().putExtra(KEY_IS_RUNNING, isRunning))
 
         LocalBroadcastHelper.unregister(this)

@@ -26,6 +26,11 @@ class QuickStartControlService : TileService() {
     var state: Int = Tile.STATE_INACTIVE
 
     fun refresh(state:Int) {
+        if (state == Tile.STATE_ACTIVE){
+            qsTile.label = "悬浮相机已打开"
+        } else {
+            qsTile.label = "悬浮相机已关闭"
+        }
         qsTile.state = state
         qsTile.updateTile()
     }
