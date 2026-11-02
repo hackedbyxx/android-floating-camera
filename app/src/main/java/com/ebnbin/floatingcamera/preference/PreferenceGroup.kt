@@ -6,6 +6,7 @@ import android.os.Parcelable
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceManager
+import com.xx.floatingcamera.R
 import com.xx.floatingcamera.util.extension.readBoolean
 import com.xx.floatingcamera.util.extension.writeBoolean
 
@@ -18,7 +19,11 @@ import com.xx.floatingcamera.util.extension.writeBoolean
  */
 open class PreferenceGroup(context: Context) : androidx.preference.PreferenceGroup(context, null) {
     init {
-        isVisible = false
+        // androidx.preference 1.1+ 的 PreferenceGroupAdapter 对不可见的 group 不再递归其子项
+        // (support 27.1.1 会递归所有 group, 仅跳过 group 自身的行), 保持框架可见并
+        // 使用零高度布局隐藏 group 自身的行, 以维持原有显示效果.
+        isVisible = true
+        layoutResource = R.layout.preference_group_transparent
     }
 
     private var initPreferences: Array<out Preference?>? = null

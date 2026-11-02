@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 自定义 PreferenceGroup 容器的布局: 零高度, 不显示任何内容, 仅用于让适配器递归显示其子项. -->
+<View xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="0dp" />
