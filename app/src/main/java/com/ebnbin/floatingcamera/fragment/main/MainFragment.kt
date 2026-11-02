@@ -1,20 +1,55 @@
 package com.xx.floatingcamera.fragment.main
 
+import android.Manifest
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import com.xx.floatingcamera.R
-import com.xx.floatingcamera.fragment.album.AlbumFragment
-import com.xx.floatingcamera.fragment.camera.CameraFragment
-import com.xx.floatingcamera.fragment.more.MoreFragment
+import com.xx.floatingcamera.fragment.camera.CameraPagerAdapter
+import com.xx.floatingcamera.fragment.permission.PermissionFragment
+import com.xx.floatingcamera.fragment.preference.CameraPreferenceFragment
+import com.xx.floatingcamera.service.CameraService
+import com.xx.floatingcamera.util.LocalBroadcastHelper
+import com.xx.floatingcamera.util.PreferenceHelper
 import com.xx.floatingcamera.util.extension.get
 import com.xx.floatingcamera.util.extension.put
+import com.xx.floatingcamera.util.getColorAttr
 import com.xx.floatingcamera.util.sp
 import kotlinx.android.synthetic.main.main_fragment.*
 
-class MainFragment : Fragment() {
+/**
+ * 首页.
+ */
+class MainFragment :
+        Fragment(),
+        ViewPager.OnPageChangeListener,
+        AdapterView.OnItemSelectedListener,
+        PermissionFragment.Callback,
+        LocalBroadcastHelper.Receiver,
+        SharedPreferences.OnSharedPreferenceChangeListener {
+    override fun onReceive(context: Context, intent: Intent, action: String) {
+        when (action) {
+            CameraService.ACTION_CAMERA_SERVICE_IS_RUNNING -> invalidateCameraServiceIsRunning()
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        LocalBroadcastHelper.register(this, CameraService.ACTION_CAMERA_SERVICE_IS_RUNNING)
+
+        sp.registerOnSharedPreferenceChangeListener(this)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
@@ -22,84 +57,147 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bottomNavigationView.setOnNavigationItemSelectedListener {
-            val foundCameraFragment = childFragmentManager.findFragmentByTag(CameraFragment::class.java.name)
-            val foundAlbumFragment = childFragmentManager.findFragmentByTag(AlbumFragment::class.java.name)
-            val foundMoreFragment = childFragmentManager.findFragmentByTag(MoreFragment::class.java.name)
-            when (it.itemId) {
-                R.id.camera -> {
-//                    DevHelper.event("navigation", mapOf("item" to "camera"))
-                    val transaction = childFragmentManager.beginTransaction()
-                    if (foundCameraFragment != null) {
-                        transaction.show(foundCameraFragment)
-                    } else {
-                        transaction.add(R.id.fragment_container, CameraFragment(), CameraFragment::class.java.name)
-                    }
-                    if (foundAlbumFragment != null) {
-                        transaction.hide(foundAlbumFragment)
-                    }
-                    if (foundMoreFragment != null) {
-                        transaction.hide(foundMoreFragment)
-                    }
-                    transaction.commit()
-                    sp.put(KEY_NAVIGATION, 0)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.album -> {
-//                    DevHelper.event("navigation", mapOf("item" to "album"))
-                    val transaction = childFragmentManager.beginTransaction()
-                    if (foundAlbumFragment != null) {
-                        transaction.show(foundAlbumFragment)
-                        if (foundAlbumFragment is AlbumFragment) {
-                            foundAlbumFragment.requestPermissions()
-                        }
-                    } else {
-                        transaction.add(R.id.fragment_container, AlbumFragment(), AlbumFragment::class.java.name)
-                    }
-                    if (foundCameraFragment != null) {
-                        transaction.hide(foundCameraFragment)
-                    }
-                    if (foundMoreFragment != null) {
-                        transaction.hide(foundMoreFragment)
-                    }
-                    transaction.commit()
-                    sp.put(KEY_NAVIGATION, 1)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.more -> {
-//                    DevHelper.event("navigation", mapOf("item" to "more"))
-                    val transaction = childFragmentManager.beginTransaction()
-                    if (foundMoreFragment != null) {
-                        transaction.show(foundMoreFragment)
-                    } else {
-                        transaction.add(R.id.fragment_container, MoreFragment(), MoreFragment::class.java.name)
-                    }
-                    if (foundCameraFragment != null) {
-                        transaction.hide(foundCameraFragment)
-                    }
-                    if (foundAlbumFragment != null) {
-                        transaction.hide(foundAlbumFragment)
-                    }
-                    transaction.commit()
-                    sp.put(KEY_NAVIGATION, 2)
-                    return@setOnNavigationItemSelectedListener true
-                }
-            }
-            false
+        val context = context ?: return
+
+        tabLayout.setupWithViewPager(viewPager)
+
+        val adapter = CameraPagerAdapter(childFragmentManager)
+        viewPager.adapter = adapter
+        viewPager.addOnPageChangeListener(this)
+        viewPager.offscreenPageLimit = adapter.count
+        viewPager.setPageMarginDrawable(ColorDrawable(getColorAttr(context, R.attr.colorPlaceholder)))
+
+        cameraFab.setOnClickListener {
+            cameraFab.isEnabled = false
+
+            val recordAudioPermission = if (PreferenceHelper.isPhoto())
+                arrayOf() else
+                arrayOf(Manifest.permission.RECORD_AUDIO)
+            PermissionFragment.request(childFragmentManager, REQUEST_CODE_PERMISSION,
+                    Manifest.permission.SYSTEM_ALERT_WINDOW, Manifest.permission.CAMERA, *recordAudioPermission,
+                    Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
+
+        profileSpinner.onItemSelectedListener = this
+        invalidateProfileSpinner()
 
         if (savedInstanceState != null) return
 
-        bottomNavigationView.selectedItemId = when (sp.get(KEY_NAVIGATION, DEF_VALUE_NAVIGATION)) {
-            0 -> R.id.camera
-            1 -> R.id.album
-            2 -> R.id.more
-            else -> R.id.camera
+        viewPager.currentItem = sp.get(KEY_PAGE, DEF_VALUE_PAGE)
+    }
+
+    override fun onPermissionsResult(requestCode: Int, granted: Boolean) {
+        when (requestCode) {
+            REQUEST_CODE_PERMISSION -> {
+                cameraFab.isEnabled = true
+
+                if (!granted) return
+
+                if (CameraService.isRunning)
+                    CameraService.postStop() else
+                    CameraService.start()
+            }
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        invalidateCameraServiceIsRunning()
+        invalidateProfileSpinner()
+    }
+
+    private fun invalidateCameraServiceIsRunning() {
+        cameraFab.isEnabled = true
+        cameraFab.setImageResource(if (CameraService.isRunning) R.drawable.stop else R.drawable.camera)
+    }
+
+    //*****************************************************************************************************************
+    // 视频配置选择器.
+
+    private var updatingProfileSpinner = false
+
+    private fun videoProfileKey() = if (CameraPreferenceFragment.isFront)
+        CameraPreferenceFragment.KEY_FRONT_VIDEO_PROFILE else
+        CameraPreferenceFragment.KEY_BACK_VIDEO_PROFILE
+
+    /**
+     * 依据当前摄像头和视频/照片模式更新视频配置选择器.
+     */
+    private fun invalidateProfileSpinner() {
+        val context = context ?: return
+
+        updatingProfileSpinner = true
+
+        if (PreferenceHelper.isPhoto()) {
+            profileSpinner.visibility = View.INVISIBLE
+        } else {
+            profileSpinner.visibility = View.VISIBLE
+
+            val device = PreferenceHelper.device()
+            val summaries = device.videoProfileSummaries
+            profileSpinner.adapter = ArrayAdapter(context,
+                    android.R.layout.simple_spinner_dropdown_item, summaries)
+
+            val index = sp.get(videoProfileKey(), DEF_VALUE_VIDEO_PROFILE).toIntOrNull() ?: 0
+            if (index in 0 until summaries.size) {
+                profileSpinner.setSelection(index)
+            }
+        }
+
+        updatingProfileSpinner = false
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        if (updatingProfileSpinner) return
+
+        sp.put(videoProfileKey(), position.toString())
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) = Unit
+
+    //*****************************************************************************************************************
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        when (key) {
+            CameraPreferenceFragment.KEY_IS_FRONT,
+            CameraPreferenceFragment.KEY_BACK_IS_PHOTO,
+            CameraPreferenceFragment.KEY_FRONT_IS_PHOTO,
+            CameraPreferenceFragment.KEY_BACK_VIDEO_PROFILE,
+            CameraPreferenceFragment.KEY_FRONT_VIDEO_PROFILE -> invalidateProfileSpinner()
+        }
+    }
+
+    //*****************************************************************************************************************
+
+    override fun onDestroyView() {
+        viewPager.removeOnPageChangeListener(this)
+
+        super.onDestroyView()
+    }
+
+    override fun onDestroy() {
+        sp.unregisterOnSharedPreferenceChangeListener(this)
+
+        LocalBroadcastHelper.unregister(this)
+
+        super.onDestroy()
+    }
+
+    override fun onPageScrollStateChanged(state: Int) = Unit
+
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
+
+    override fun onPageSelected(position: Int) {
+        sp.put(KEY_PAGE, position)
+    }
+
     companion object {
-        private const val KEY_NAVIGATION = "navigation"
-        private const val DEF_VALUE_NAVIGATION = 0
+        const val KEY_PAGE = "page"
+        private const val DEF_VALUE_PAGE = 1
+
+        private const val DEF_VALUE_VIDEO_PROFILE = "0"
+
+        private const val REQUEST_CODE_PERMISSION = 0x1
     }
 }

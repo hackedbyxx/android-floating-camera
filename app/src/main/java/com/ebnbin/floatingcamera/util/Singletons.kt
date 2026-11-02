@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Resources
 import android.hardware.camera2.CameraManager
-import android.support.v7.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import android.view.Display
 import android.view.WindowManager
 import com.xx.floatingcamera.AppApplication

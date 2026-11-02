@@ -3,10 +3,10 @@ package com.xx.floatingcamera.fragment.preference
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v14.preference.SwitchPreference
-import android.support.v7.preference.Preference
-import android.support.v7.preference.PreferenceCategory
-import android.support.v7.preference.SeekBarPreference
+import androidx.preference.SwitchPreferenceCompat
+import androidx.preference.Preference
+import androidx.preference.PreferenceCategory
+import androidx.preference.SeekBarPreference
 import com.xx.floatingcamera.R
 import com.xx.floatingcamera.preference.PreferenceFragment
 import com.xx.floatingcamera.preference.PreferenceGroup
@@ -91,7 +91,7 @@ class WindowPreferenceFragment : PreferenceFragment<WindowPreferenceFragment.Win
         }
 
         private val enableInfoPreference by lazy {
-            SwitchPreference(context).apply {
+            SwitchPreferenceCompat(context).apply {
                 key = KEY_ENABLE_INFO
                 setDefaultValue(DEF_ENABLE_INFO)
                 setTitle(R.string.enable_info_title)
@@ -101,7 +101,7 @@ class WindowPreferenceFragment : PreferenceFragment<WindowPreferenceFragment.Win
         }
 
         private val enableToastPreference by lazy {
-            SwitchPreference(context).apply {
+            SwitchPreferenceCompat(context).apply {
                 key = KEY_ENABLE_TOAST
                 setDefaultValue(DEF_ENABLE_TOAST)
                 setTitle(R.string.enable_toast_title)
@@ -117,7 +117,7 @@ class WindowPreferenceFragment : PreferenceFragment<WindowPreferenceFragment.Win
         }
 
         private val isTouchablePreference by lazy {
-            SwitchPreference(context).apply {
+            SwitchPreferenceCompat(context).apply {
                 key = KEY_IS_TOUCHABLE
                 setDefaultValue(DEF_IS_TOUCHABLE)
                 setTitle(R.string.is_touchable_title)
@@ -142,7 +142,7 @@ class WindowPreferenceFragment : PreferenceFragment<WindowPreferenceFragment.Win
          * 手势移动.
          */
         private val enableGestureMove by lazy {
-            SwitchPreference(context).apply {
+            SwitchPreferenceCompat(context).apply {
                 key = KEY_ENABLE_GESTURE_MOVE
                 setDefaultValue(DEF_ENABLE_GESTURE_MOVE)
                 setTitle(R.string.enable_gesture_move_title)
@@ -155,7 +155,7 @@ class WindowPreferenceFragment : PreferenceFragment<WindowPreferenceFragment.Win
          * 手势缩放.
          */
         private val enableGestureScale by lazy {
-            SwitchPreference(context).apply {
+            SwitchPreferenceCompat(context).apply {
                 key = KEY_ENABLE_GESTURE_SCALE
                 setDefaultValue(DEF_ENABLE_GESTURE_SCALE)
                 setTitle(R.string.enable_gesture_scale_title)
@@ -165,7 +165,7 @@ class WindowPreferenceFragment : PreferenceFragment<WindowPreferenceFragment.Win
         }
 
         private val enableGestureTap by lazy {
-            SwitchPreference(context).apply {
+            SwitchPreferenceCompat(context).apply {
                 key = KEY_ENABLE_GESTURE_TAP
                 setDefaultValue(DEF_ENABLE_GESTURE_TAP)
                 setTitle(R.string.gesture_tap_title)

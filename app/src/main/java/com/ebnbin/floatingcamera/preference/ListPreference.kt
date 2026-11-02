@@ -1,12 +1,12 @@
 package com.xx.floatingcamera.preference
 
 import android.content.Context
-import android.support.v7.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 
 /**
- * [android.support.v7.preference.ListPreference].
+ * [androidx.preference.ListPreference].
  */
-open class ListPreference(context: Context) : android.support.v7.preference.ListPreference(context) {
+open class ListPreference(context: Context) : androidx.preference.ListPreference(context) {
     var summaries: Array<out CharSequence>? = null
         set(value) {
             field = value

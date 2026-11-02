@@ -1,7 +1,7 @@
 package com.xx.floatingcamera.util
 
-import com.xx.floatingcamera.fragment.more.MorePreferenceFragment
 import com.xx.floatingcamera.fragment.preference.CameraPreferenceFragment
+import com.xx.floatingcamera.fragment.preference.OtherPreferenceFragment
 import com.xx.floatingcamera.fragment.preference.WindowPreferenceFragment
 
 /**
@@ -130,5 +130,5 @@ object PreferenceHelper {
     /**
      * 是否为暗色主题 (or 亮色主题).
      */
-    fun isDarkTheme() = MorePreferenceFragment.isDarkTheme
+    fun isDarkTheme() = OtherPreferenceFragment.isDarkTheme
 }

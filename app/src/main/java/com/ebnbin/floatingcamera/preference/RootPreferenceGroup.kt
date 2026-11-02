@@ -3,7 +3,7 @@ package com.xx.floatingcamera.preference
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v7.preference.Preference
+import androidx.preference.Preference
 
 /**
  * 基础根偏好组.

@@ -3,7 +3,7 @@ package com.xx.floatingcamera.fragment.preference
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v14.preference.SwitchPreference
+import androidx.preference.SwitchPreferenceCompat
 import com.xx.floatingcamera.R
 import com.xx.floatingcamera.preference.ListPreference
 import com.xx.floatingcamera.preference.PreferenceFragment
@@ -56,7 +56,7 @@ class CameraPreferenceFragment : PreferenceFragment<CameraPreferenceFragment.Cam
          * 后置/前置摄像头.
          */
         private val isFrontPreference by lazy {
-            SwitchPreference(context).apply {
+            SwitchPreferenceCompat(context).apply {
                 key = KEY_IS_FRONT
                 setDefaultValue(DEF_VALUE_IS_FRONT)
                 isEnabled = CameraHelper.hasBothDevices
@@ -85,7 +85,7 @@ class CameraPreferenceFragment : PreferenceFragment<CameraPreferenceFragment.Cam
          * 后置摄像头视频/照片.
          */
         private val backIsPhotoPreference by lazy {
-            SwitchPreference(context).apply {
+            SwitchPreferenceCompat(context).apply {
                 key = KEY_BACK_IS_PHOTO
                 setDefaultValue(DEF_VALUE_BACK_IS_PHOTO)
                 setTitle(R.string.is_photo_title)
@@ -187,7 +187,7 @@ class CameraPreferenceFragment : PreferenceFragment<CameraPreferenceFragment.Cam
          * 前置摄像头视频/照片.
          */
         private val frontIsPhotoPreference by lazy {
-            SwitchPreference(context).apply {
+            SwitchPreferenceCompat(context).apply {
                 key = KEY_FRONT_IS_PHOTO
                 setDefaultValue(DEF_VALUE_FRONT_IS_PHOTO)
                 setTitle(R.string.is_photo_title)

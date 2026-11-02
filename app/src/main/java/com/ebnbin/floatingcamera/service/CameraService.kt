@@ -9,7 +9,7 @@ import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.Build
 import android.service.quicksettings.TileService
-import android.support.v4.app.NotificationCompat
+import androidx.core.app.NotificationCompat
 import android.view.Gravity
 import android.view.WindowManager
 import android.widget.Toast

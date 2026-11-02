@@ -12,13 +12,13 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.support.annotation.RequiresApi
-import android.support.annotation.StringRes
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatDialogFragment
+import androidx.annotation.RequiresApi
+import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatDialogFragment
 import android.widget.Toast
 import com.xx.floatingcamera.R
 import com.xx.floatingcamera.fragment.permission.PermissionFragment.Callback
@@ -45,7 +45,7 @@ class PermissionFragment : Fragment() {
     private var runtimePermissions = arrayOf<String>()
     private var enableDenied = true
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
 
         val parentFragment = parentFragment

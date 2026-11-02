@@ -2,7 +2,7 @@ package com.xx.floatingcamera.util
 
 import android.content.ComponentCallbacks
 import android.content.Context
-import android.support.v4.util.ArrayMap
+import androidx.collection.ArrayMap
 import android.view.OrientationEventListener
 import com.xx.floatingcamera.util.extension.get
 import com.xx.floatingcamera.util.extension.put

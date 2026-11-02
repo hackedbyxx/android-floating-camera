@@ -3,20 +3,20 @@ package com.xx.floatingcamera.preference
 import android.content.Context
 import android.os.Parcel
 import android.os.Parcelable
-import android.support.v7.preference.Preference
-import android.support.v7.preference.PreferenceCategory
-import android.support.v7.preference.PreferenceManager
+import androidx.preference.Preference
+import androidx.preference.PreferenceCategory
+import androidx.preference.PreferenceManager
 import com.xx.floatingcamera.util.extension.readBoolean
 import com.xx.floatingcamera.util.extension.writeBoolean
 
 /**
- * [android.support.v7.preference.PreferenceGroup].
+ * [androidx.preference.PreferenceGroup].
  *
  * 用于管理 [Preference], 没有可显示的内容, 可以嵌套添加.
  *
  * [PreferenceCategory] 作为普通 [Preference] 使用, 不用于添加子 [Preference].
  */
-open class PreferenceGroup(context: Context) : android.support.v7.preference.PreferenceGroup(context, null) {
+open class PreferenceGroup(context: Context) : androidx.preference.PreferenceGroup(context, null) {
     init {
         isVisible = false
     }

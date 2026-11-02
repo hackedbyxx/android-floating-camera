@@ -7,11 +7,11 @@ import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import com.xx.floatingcamera.R
 import com.xx.floatingcamera.fragment.main.MainFragment
-import com.xx.floatingcamera.fragment.more.MorePreferenceFragment
+import com.xx.floatingcamera.fragment.preference.OtherPreferenceFragment
 import com.xx.floatingcamera.util.*
 import com.xx.floatingcamera.util.extension.dpInt
 
@@ -74,7 +74,7 @@ class MainActivity :
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         when (key) {
-            MorePreferenceFragment.KEY_IS_DARK_THEME -> {
+            OtherPreferenceFragment.KEY_IS_DARK_THEME -> {
                 recreate()
             }
         }

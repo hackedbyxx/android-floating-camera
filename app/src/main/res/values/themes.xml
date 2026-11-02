@@ -4,7 +4,7 @@
     <!-- Application 主题. -->
     <eat-comment/>
 
-    <style name="ApplicationTheme" parent="Theme.Design.Light.NoActionBar">
+    <style name="ApplicationTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/application_window_background</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
@@ -28,12 +28,13 @@
     <color name="light_icon">#8a000000</color>
     <color name="light_placeholder">#0f263238</color>
 
-    <style name="LightTheme" parent="Theme.Design.Light.NoActionBar">
+    <style name="LightTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@color/light_window_background</item>
         <item name="colorPrimary">@color/light_color_primary</item>
-        <item name="colorPrimaryDark">@color/light_color_primary_dark</item>
-        <item name="colorAccent">@color/light_color_accent</item>
-        <item name="android:navigationBarColor">?attr/colorPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/light_color_primary_dark</item>
+        <item name="colorOnPrimary">#fff</item>
+        <item name="colorSecondary">@color/light_color_accent</item>
+        <item name="android:navigationBarColor">?attr/colorPrimaryVariant</item>
         <item name="preferenceTheme">@style/PreferenceTheme</item>
         <item name="colorIcon">@color/light_icon</item>
         <item name="colorCard">@color/cardview_light_background</item>
@@ -51,12 +52,13 @@
     <color name="dark_icon">#fff</color>
     <color name="dark_placeholder">#0feceff1</color>
 
-    <style name="DarkTheme" parent="Theme.Design.NoActionBar">
+    <style name="DarkTheme" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:windowBackground">@color/dark_window_background</item>
         <item name="colorPrimary">@color/dark_color_primary</item>
-        <item name="colorPrimaryDark">@color/dark_color_primary_dark</item>
-        <item name="colorAccent">@color/dark_color_accent</item>
-        <item name="android:navigationBarColor">?attr/colorPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/dark_color_primary_dark</item>
+        <item name="colorOnPrimary">#fff</item>
+        <item name="colorSecondary">@color/dark_color_accent</item>
+        <item name="android:navigationBarColor">?attr/colorPrimaryVariant</item>
         <item name="preferenceTheme">@style/PreferenceTheme</item>
         <item name="colorIcon">@color/dark_icon</item>
         <item name="colorCard">@color/cardview_dark_background</item>
@@ -65,8 +67,8 @@
 
     <!-- ********************************************************************************************************** -->
     <!-- 偏好主题. -->
-    
-    <style name="PreferenceTheme" parent="PreferenceThemeOverlay.v14.Material">
+
+    <style name="PreferenceTheme" parent="PreferenceThemeOverlay">
         <item name="android:divider">@null</item>
         <item name="android:dividerHeight">0dp</item>
         <item name="allowDividerAfterLastItem">false</item>

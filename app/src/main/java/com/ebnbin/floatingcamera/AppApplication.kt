@@ -3,7 +3,7 @@ package com.xx.floatingcamera
 import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import com.xx.floatingcamera.fragment.camera.CameraFragment
+import com.xx.floatingcamera.fragment.main.MainFragment
 import com.xx.floatingcamera.util.*
 import com.xx.floatingcamera.util.extension.get
 import com.xx.floatingcamera.util.extension.put
@@ -25,7 +25,7 @@ class AppApplication : Application() {
 
         if (sp.get(KEY_VERSION_CODE, 0) < BuildConfig.VERSION_CODE) {
             sp.put(KEY_VERSION_CODE, BuildConfig.VERSION_CODE)
-            sp.put(CameraFragment.KEY_PAGE, null)
+            sp.put(MainFragment.KEY_PAGE, null)
         }
 
         if (v26()) {
