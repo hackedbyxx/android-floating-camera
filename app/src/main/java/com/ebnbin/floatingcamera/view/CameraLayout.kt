@@ -141,10 +141,10 @@ class CameraLayout : FrameLayout,
     }
 
     private fun invalidateWindowAlpha() {
-        val params = layoutParams as WindowManager.LayoutParams
-        params.alpha = WindowPreferenceFragment.windowAlpha / 100f
-
-        windowManager.updateViewLayout(this, params)
+        // 不能用 WindowManager.LayoutParams.alpha:Android 12 起系统按窗口不透明度决定触摸路由,
+        // 不可信悬浮窗 alpha < 0.5 时会被当作"透明",触摸直接穿透到下层应用,窗口收不到点击。
+        // 视图级 alpha 只影响绘制、不参与系统判定,视觉效果相同且不影响触摸分发。
+        alpha = WindowPreferenceFragment.windowAlpha / 100f
     }
 
     //*****************************************************************************************************************
